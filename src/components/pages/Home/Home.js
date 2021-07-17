@@ -1,5 +1,5 @@
 /* Library Imports */
-import React from 'react';
+import React, { useState } from 'react';
 
 
 /* Component Imports */
@@ -9,9 +9,12 @@ import TextInput from 'src/components/elements/TextInput/TextInput'
 import StyledHome from './StyledHome';
 
 const Home = () => {
+
+  const [name, setName] = useState("")
+  const [password, setPassword] = useState("")
   return (
     <StyledHome>
-      <TextInput type={"text"} labelMessage={"Please enter your username"} />
+      <TextInput type={"text"} fieldValue={name} updateValue={setName} labelMessage={"Please enter your username"} />
     </StyledHome>
   )
 };

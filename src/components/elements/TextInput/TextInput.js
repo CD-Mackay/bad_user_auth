@@ -7,9 +7,8 @@ import React, { useEffect, useState } from 'react';
 /* Asset Imports */
 import StyledTextInput from './StyledTextInput';
 
-const TextInput = ({type, labelMessage}) => {
+const TextInput = ({type, labelMessage, fieldValue, updateValue}) => {
 
-  const [name, setName] = useState("")
   const [selected, setSelected] = useState("")
 
   let options = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
@@ -20,13 +19,13 @@ const TextInput = ({type, labelMessage}) => {
   }
 
   const handleAddLetter = () => {
-    setName(name.concat(selected))
+    updateValue(fieldValue.concat(selected))
   }
 
 
   return (
     <StyledTextInput>
-      <p>{name}</p>
+      <p>{fieldValue}</p>
       <label htmlFor={type}>{labelMessage}</label>
       <select onChange={handleSelect} name={type} id={type}>
         {options.map((letter) => <option value={letter} key={letter}>{letter}</option>)}
