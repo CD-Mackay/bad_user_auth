@@ -25,7 +25,7 @@ const TextInput = ({type, labelMessage, fieldValue, updateValue}) => {
 
   return (
     <StyledTextInput>
-      <p>{fieldValue}</p>
+      <p>{type}: {fieldValue}</p>
       <label htmlFor={type}>{labelMessage}</label>
       <select onChange={handleSelect} name={type} id={type}>
         {options.map((letter) => <option value={letter} key={letter}>{letter}</option>)}

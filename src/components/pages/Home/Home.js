@@ -14,7 +14,8 @@ const Home = () => {
   const [password, setPassword] = useState("")
   return (
     <StyledHome>
-      <TextInput type={"text"} fieldValue={name} updateValue={setName} labelMessage={"Please enter your username"} />
+      <TextInput type={"username"} fieldValue={name} updateValue={setName} labelMessage={"Please enter your username"} />
+      <TextInput type={"password"} fieldValue={password} updateValue={setPassword} labelMessage={"Please enter your password"} />
     </StyledHome>
   )
 };
