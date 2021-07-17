@@ -14,6 +14,19 @@ const Home = () => {
   const [password, setPassword] = useState("")
   const [confirmPassword, setConfirmPassword] = useState("")
   const [phase, setPhase] = useState(1);
+
+  const passwordIsConfirmed = () => {
+    if (password.split("").reverse().join("") === confirmPassword) {
+      console.log("good password")
+      return "welcome to the terrible app!"
+    } else {
+      console.log("bad password")
+      return "Those passwords do not match, please refresh the page to try again!"
+    } 
+  }
+
+  const loginMessage = passwordIsConfirmed();
+
   return (
     <StyledHome>
       
@@ -27,6 +40,10 @@ const Home = () => {
       <TextInput type={"confirmPassword"} fieldValue={confirmPassword} updateValue={setConfirmPassword} labelMessage={"Please confirm your password by entering it in reverse!"} />
       </div>
       }
+      {phase == 3 && 
+      <div className="form-field">
+        <p>{loginMessage}</p>
+        </div>}
       <button onClick={() => setPhase(phase + 1)}>Sign up!</button>
     </StyledHome>
   )
